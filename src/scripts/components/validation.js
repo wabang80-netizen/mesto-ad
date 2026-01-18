@@ -20,7 +20,7 @@ const hideInputError = (formElement, inputElement, settings) => {
   }
 };
 
-// Проверяет валидность поля. 
+// Проверяет валидность поля.
 // Если оно невалидно, вызывает showInputError, иначе — hideInputError. 
 // В случае, если в поля «Имя» или «Название» введён любой символ, кроме латинской буквы, кириллической буквы и дефиса, выводит кастомное сообщение об ошибке: 
 // Текст ошибки разместить в data-* атрибуте поля ввода.
@@ -41,20 +41,20 @@ const checkInputValidity = (formElement, inputElement, settings) => {
   }
 };
 
-//true, если какое-то поле не прошло валидацию.
+// true, если какое-то поле не прошло валидацию.
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
-//деактивирирует кнопку формы
+// деактивирирует кнопку формы
 const disableSubmitButton = (buttonElement, settings) => {
   buttonElement.classList.add(settings.inactiveButtonClass);
   buttonElement.disabled = true;
 };
 
-//активирует кнпку формы
+// активирует кнопку формы
 const enableSubmitButton = (buttonElement, settings) => {
   buttonElement.classList.remove(settings.inactiveButtonClass);
   buttonElement.disabled = false;
@@ -71,7 +71,7 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
   }
 };
 
-//добавляет обработчики события input для всех полей формы. 
+// добавляет обработчики события input для всех полей формы. 
 // При каждом вводе проверяет валидность поля и вызывает функцию toggleButtonState.
 const setEventListeners = (formElement, settings) => {
   const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector)); //все поля внутри формы
@@ -104,7 +104,7 @@ export const clearValidation = (formElement, settings) => {
   formElement.reset();
 };
 
-//отвечает за включение валидации всех форм. 
+// отвечает за включение валидации всех форм. 
 // Функция должна принимать все нужные функциям селекторы элементов как объект настроек.
 export const enableValidation = (settings) => {
   const formList = Array.from(document.querySelectorAll(settings.formSelector)); //все формы на странице
